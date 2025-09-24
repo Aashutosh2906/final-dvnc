@@ -1347,82 +1347,93 @@
             <div class="chat-container" id="chatContainer">
                 <div class="welcome-state" id="welcomeState">
                     <div class="vitruvian-container">
-                        <!-- Grid overlay -->
+                        <!-- Grid overlay - matching the exact grid from image -->
                         <div class="vitruvian-grid">
-                            <div class="grid-line horizontal" style="top: 25%"></div>
+                            <div class="grid-line horizontal" style="top: 16.66%"></div>
+                            <div class="grid-line horizontal" style="top: 33.33%"></div>
                             <div class="grid-line horizontal" style="top: 50%"></div>
-                            <div class="grid-line horizontal" style="top: 75%"></div>
-                            <div class="grid-line vertical" style="left: 25%"></div>
+                            <div class="grid-line horizontal" style="top: 66.66%"></div>
+                            <div class="grid-line horizontal" style="top: 83.33%"></div>
+                            <div class="grid-line vertical" style="left: 16.66%"></div>
+                            <div class="grid-line vertical" style="left: 33.33%"></div>
                             <div class="grid-line vertical" style="left: 50%"></div>
-                            <div class="grid-line vertical" style="left: 75%"></div>
+                            <div class="grid-line vertical" style="left: 66.66%"></div>
+                            <div class="grid-line vertical" style="left: 83.33%"></div>
                         </div>
 
-                        <!-- Circular orbits -->
-                        <div class="orbit inner"></div>
-                        <div class="orbit outer"></div>
+                        <!-- Large outer circle -->
+                        <div class="orbit outer" style="width: 500px; height: 500px;"></div>
+                        
+                        <!-- Inner circle -->
+                        <div class="orbit inner" style="width: 300px; height: 300px;"></div>
 
-                        <!-- Connection lines -->
+                        <!-- Curved connection lines (SVG) -->
                         <svg style="position: absolute; width: 100%; height: 100%; pointer-events: none;">
-                            <line x1="50%" y1="50%" x2="0%" y2="50%" stroke="var(--border)" stroke-width="1" opacity="0.2"/>
-                            <line x1="50%" y1="50%" x2="100%" y2="50%" stroke="var(--border)" stroke-width="1" opacity="0.2"/>
-                            <line x1="50%" y1="50%" x2="50%" y2="20%" stroke="var(--border)" stroke-width="1" opacity="0.2"/>
-                            <line x1="50%" y1="50%" x2="20%" y2="85%" stroke="var(--border)" stroke-width="1" opacity="0.2"/>
-                            <line x1="50%" y1="50%" x2="40%" y2="85%" stroke="var(--border)" stroke-width="1" opacity="0.2"/>
-                            <line x1="50%" y1="50%" x2="60%" y2="85%" stroke="var(--border)" stroke-width="1" opacity="0.2"/>
-                            <line x1="50%" y1="50%" x2="80%" y2="85%" stroke="var(--border)" stroke-width="1" opacity="0.2"/>
+                            <!-- Lines from top circle to middle nodes -->
+                            <path d="M 300 150 Q 250 200 200 300" stroke="var(--border)" stroke-width="1" fill="none" opacity="0.3"/>
+                            <path d="M 300 150 Q 300 200 300 300" stroke="var(--border)" stroke-width="1" fill="none" opacity="0.3"/>
+                            <path d="M 300 150 Q 350 200 400 300" stroke="var(--border)" stroke-width="1" fill="none" opacity="0.3"/>
+                            
+                            <!-- Lines from middle to bottom nodes -->
+                            <path d="M 200 300 Q 180 350 150 400" stroke="var(--border)" stroke-width="1" fill="none" opacity="0.3"/>
+                            <path d="M 300 300 Q 270 350 240 400" stroke="var(--border)" stroke-width="1" fill="none" opacity="0.3"/>
+                            <path d="M 300 300 Q 330 350 360 400" stroke="var(--border)" stroke-width="1" fill="none" opacity="0.3"/>
+                            <path d="M 400 300 Q 420 350 450 400" stroke="var(--border)" stroke-width="1" fill="none" opacity="0.3"/>
                         </svg>
 
-                        <!-- Header text -->
-                        <div class="vitruvian-header">
+                        <!-- Header text at very top -->
+                        <div class="vitruvian-header" style="top: -40px;">
                             <div class="vitruvian-title">Leonardo's Intelligence. Reimagined for the 21st Century.</div>
                         </div>
 
-                        <!-- Central pulsating node -->
-                        <div class="central-node">
+                        <!-- TOP: Central pulsating node (matching image position) -->
+                        <div class="central-node" style="top: 150px; left: 50%; transform: translateX(-50%);">
                             <div class="central-logo">DVNC.AI</div>
                         </div>
 
-                        <!-- Primary knowledge nodes -->
-                        <div class="knowledge-node-orbit primary node-mechanics">
+                        <!-- MIDDLE ROW: Three primary nodes -->
+                        <div class="knowledge-node-orbit primary" style="top: 300px; left: 200px; transform: translate(-50%, -50%);">
                             <div class="node-label">MECHANICS<br>PHYSICS</div>
                         </div>
-                        <div class="knowledge-node-orbit primary node-cross-domain">
-                            <div class="node-label">CROSS-DOMAIN<br>SYNTHESIS</div>
+                        <div class="knowledge-node-orbit primary" style="top: 300px; left: 50%; transform: translate(-50%, -50%);">
+                            <div class="node-label">CROSS-DOMAIN</div>
                         </div>
-                        <div class="knowledge-node-orbit primary node-intelligence">
+                        <div class="knowledge-node-orbit primary" style="top: 300px; left: 400px; transform: translate(-50%, -50%);">
                             <div class="node-label">CREATIVE<br>INTELLIGENCE</div>
                         </div>
 
-                        <!-- Secondary knowledge nodes -->
-                        <div class="knowledge-node-orbit secondary node-quantum">
+                        <!-- BOTTOM ROW: Four secondary nodes -->
+                        <div class="knowledge-node-orbit secondary" style="top: 400px; left: 150px; transform: translate(-50%, -50%);">
                             <div class="node-label">QUANTUM</div>
                         </div>
-                        <div class="knowledge-node-orbit secondary node-neural">
+                        <div class="knowledge-node-orbit secondary" style="top: 400px; left: 240px; transform: translate(-50%, -50%);">
                             <div class="node-label">NEURAL</div>
                         </div>
-                        <div class="knowledge-node-orbit secondary node-golden">
+                        <div class="knowledge-node-orbit secondary" style="top: 400px; left: 360px; transform: translate(-50%, -50%);">
                             <div class="node-label">GOLDEN RATIO</div>
                         </div>
-                        <div class="knowledge-node-orbit secondary node-futurist">
+                        <div class="knowledge-node-orbit secondary" style="top: 400px; left: 450px; transform: translate(-50%, -50%);">
                             <div class="node-label">FUTURIST AI</div>
                         </div>
 
-                        <!-- Floating dots for ambiance -->
-                        <div class="floating-dot" style="top: 15%; left: 20%; animation-delay: 0s;"></div>
-                        <div class="floating-dot" style="top: 30%; right: 15%; animation-delay: 2s;"></div>
-                        <div class="floating-dot" style="bottom: 20%; left: 15%; animation-delay: 4s;"></div>
-                        <div class="floating-dot" style="bottom: 30%; right: 20%; animation-delay: 6s;"></div>
-                        <div class="floating-dot" style="top: 60%; left: 10%; animation-delay: 8s;"></div>
-                        <div class="floating-dot" style="top: 70%; right: 10%; animation-delay: 10s;"></div>
+                        <!-- Floating dots matching image positions -->
+                        <div class="floating-dot" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+                        <div class="floating-dot" style="top: 35%; right: 8%; animation-delay: 2s;"></div>
+                        <div class="floating-dot" style="top: 15%; right: 20%; animation-delay: 3s;"></div>
+                        <div class="floating-dot" style="bottom: 35%; left: 5%; animation-delay: 4s;"></div>
+                        <div class="floating-dot" style="bottom: 25%; right: 10%; animation-delay: 5s;"></div>
+                        <div class="floating-dot" style="top: 55%; left: 12%; animation-delay: 6s;"></div>
+                        <div class="floating-dot" style="top: 65%; right: 15%; animation-delay: 7s;"></div>
+                        <div class="floating-dot" style="bottom: 45%; right: 5%; animation-delay: 8s;"></div>
                     </div>
 
-                    <!-- Input section at bottom -->
+                    <!-- Input section at bottom (matching image) -->
                     <div class="input-section">
-                        <div class="input-label">Ask DVNC.AI anything...</div>
                         <div class="input-container">
-                            <input type="text" class="input-field" placeholder="Design a next-generation product or ask for innovative solutions..." id="mainInput">
-                            <button class="generate-btn" style="width: auto; padding: 8px 16px;" onclick="handleMainInput()">
-                                <span>→</span>
+                            <span style="color: var(--text-tertiary); font-size: 13px; margin-right: 8px;">Ask DVNC.AI anything...</span>
+                            <input type="text" class="input-field" placeholder="" id="mainInput" style="flex: 1;">
+                            <button class="generate-btn" style="width: auto; padding: 8px 16px; background: var(--primary); border-radius: 50%;" onclick="handleMainInput()">
+                                <span>↑</span>
                             </button>
                         </div>
                     </div>
