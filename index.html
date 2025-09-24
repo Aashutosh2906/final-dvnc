@@ -243,7 +243,6 @@
             justify-content: center;
             min-height: calc(100vh - 112px);
             animation: fadeIn 0.6s var(--transition);
-            position: relative;
         }
 
         @keyframes fadeIn {
@@ -260,19 +259,19 @@
         /* Integrated second design styles */
         .hero-container {
             width: 100%;
-            max-width: 700px;
+            max-width: 900px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             padding: 20px;
-            position: relative;
         }
 
         .tagline {
-            color: #666;
-            font-size: 0.75em;
-            letter-spacing: 1.5px;
+            color: #999;
+            font-size: 0.9em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             margin-bottom: 60px;
             text-align: center;
             opacity: 0;
@@ -281,7 +280,7 @@
 
         @keyframes fadeInDown {
             to {
-                opacity: 0.6;
+                opacity: 1;
                 transform: translateY(0);
             }
             from {
@@ -290,220 +289,130 @@
             }
         }
 
-        /* SVG Container for visualization */
-        .visualization-container {
-            width: 100%;
-            max-width: 600px;
-            aspect-ratio: 1;
-            position: relative;
+        .logo-section {
+            margin-bottom: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-circle {
+            width: 60px;
+            height: 60px;
+            background: black;
+            border-radius: 50%;
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: scaleIn 0.8s ease forwards 0.3s;
+        }
+
+        @keyframes scaleIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+        }
+
+        .brand-name {
+            font-size: 3.5em;
+            letter-spacing: 10px;
+            font-weight: 300;
             margin-bottom: 40px;
-        }
-
-        .visualization-svg {
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Core node styles */
-        .core-node {
-            fill: #000000;
-        }
-
-        .core-node-pulse {
-            fill: #000000;
-            animation: heartbeat 2s ease-in-out infinite;
-            transform-origin: center;
-        }
-
-        @keyframes heartbeat {
-            0% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            14% {
-                transform: scale(1.05);
-                opacity: 0.9;
-            }
-            28% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            42% {
-                transform: scale(1.08);
-                opacity: 0.85;
-            }
-            70% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        /* Ripple effect rings */
-        .heartbeat-ring {
-            fill: none;
-            stroke: rgba(80, 80, 80, 0.3);
-            stroke-width: 0.5;
             opacity: 0;
-            animation: ripple 2s ease-out infinite;
-            transform-origin: center;
+            animation: fadeInUp 1s ease forwards 0.5s;
         }
 
-        @keyframes ripple {
-            0% {
-                r: 28;
-                stroke-width: 2;
-                opacity: 0.6;
-                stroke: rgba(60, 60, 60, 0.4);
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
-            40% {
-                r: 45;
-                stroke-width: 0.8;
-                opacity: 0.3;
-                stroke: rgba(100, 100, 100, 0.2);
-            }
-            80% {
-                r: 60;
-                stroke-width: 0.3;
-                opacity: 0.1;
-                stroke: rgba(120, 120, 120, 0.1);
-            }
-            100% {
-                r: 70;
-                stroke-width: 0.1;
+            from {
                 opacity: 0;
-                stroke: rgba(140, 140, 140, 0);
+                transform: translateY(20px);
             }
         }
 
-        /* Pulse rings */
-        .pulse-ring-outer {
-            fill: none;
-            stroke: rgba(40, 40, 40, 0.1);
-            stroke-width: 0.3;
-            animation: outerPulse 2s ease-in-out infinite;
-            transform-origin: center;
+        .features-container {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 50px;
         }
 
-        .pulse-ring-mid {
-            fill: none;
-            stroke: rgba(50, 50, 50, 0.15);
-            stroke-width: 0.4;
-            animation: midPulse 2s ease-in-out infinite;
-            transform-origin: center;
+        .feature-column {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
         }
 
-        @keyframes outerPulse {
-            0%, 100% {
-                r: 35;
-                opacity: 0.1;
-            }
-            50% {
-                r: 38;
-                opacity: 0.25;
-            }
-        }
-
-        @keyframes midPulse {
-            0%, 100% {
-                r: 32;
-                opacity: 0.15;
-            }
-            50% {
-                r: 34;
-                opacity: 0.3;
-            }
-        }
-
-        /* Inner rings */
-        .inner-ring {
-            animation: innerGlow 2s ease-in-out infinite;
-        }
-
-        .inner-ring:nth-child(1) {
-            animation-delay: 0.1s;
-        }
-
-        .inner-ring:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .inner-ring:nth-child(3) {
-            animation-delay: 0.3s;
-        }
-
-        @keyframes innerGlow {
-            0%, 100% {
-                opacity: 0.15;
-            }
-            50% {
-                opacity: 0.35;
-            }
-        }
-
-        /* Connection beams */
-        .beam {
-            stroke: #000000;
-            stroke-width: 0.5;
-            fill: none;
+        .feature-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             opacity: 0;
-            stroke-linecap: round;
-            animation: beamPulse 4s ease-in-out infinite;
+            animation: fadeInScale 0.8s ease forwards;
         }
 
-        .beam:nth-child(odd) {
-            animation-delay: 0.5s;
+        .feature-item:nth-child(1) { animation-delay: 0.6s; }
+        .feature-item:nth-child(2) { animation-delay: 0.9s; }
+
+        @keyframes fadeInScale {
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(10px);
+            }
         }
 
-        .beam:nth-child(even) {
-            animation-delay: 1.5s;
+        .feature-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
         }
 
-        @keyframes beamPulse {
-            0%, 100% { opacity: 0; }
-            50% { opacity: 0.15; }
+        .feature-circle:hover {
+            transform: scale(1.1);
+            border-color: #333;
         }
 
-        /* Node labels */
-        .node-label {
-            font-size: 9px;
-            fill: #2a2a2a;
+        .half-fill {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: black;
+            transition: height 0.3s ease;
+        }
+
+        .feature-circle:hover .half-fill {
+            height: 70%;
+        }
+
+        .feature-text {
+            font-size: 0.75em;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 400;
-            opacity: 0.7;
-        }
-
-        /* Center text */
-        .center-text {
-            font-size: 48px;
-            font-weight: 200;
-            fill: #000000;
-            letter-spacing: 8px;
-        }
-
-        /* System element animation */
-        .system-element {
-            opacity: 0;
-            animation: systemInit 1s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
-        }
-
-        .system-element:nth-child(1) { animation-delay: 0.1s; }
-        .system-element:nth-child(2) { animation-delay: 0.2s; }
-        .system-element:nth-child(3) { animation-delay: 0.3s; }
-        .system-element:nth-child(4) { animation-delay: 0.4s; }
-        .system-element:nth-child(5) { animation-delay: 0.5s; }
-        .system-element:nth-child(6) { animation-delay: 0.6s; }
-        .system-element:nth-child(7) { animation-delay: 0.7s; }
-
-        @keyframes systemInit {
-            0% {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
+            letter-spacing: 1px;
+            color: #666;
+            text-align: center;
         }
 
         .input-container {
@@ -1390,137 +1299,67 @@
             <div class="chat-container" id="chatContainer">
                 <div class="welcome-state" id="welcomeState">
                     <div class="hero-container">
-                        <div class="tagline">Leonardo's Intelligence · Reimagined for the 21st Century</div>
+                        <div class="tagline">Leonardo's Intelligence Reimagined for the 21st Century</div>
                         
-                        <div class="visualization-container">
-                            <svg class="visualization-svg" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                                <!-- Energy beams / Connection lines -->
-                                <g class="beam-system">
-                                    <path class="beam" d="M 300 180 Q 200 250 200 350"/>
-                                    <path class="beam" d="M 300 180 Q 300 250 300 350"/>
-                                    <path class="beam" d="M 300 180 Q 400 250 400 350"/>
-                                    
-                                    <path class="beam" d="M 200 350 Q 175 415 150 480"/>
-                                    <path class="beam" d="M 200 350 Q 225 415 250 480"/>
-                                    <path class="beam" d="M 300 350 Q 325 415 350 480"/>
-                                    <path class="beam" d="M 400 350 Q 425 415 450 480"/>
-                                </g>
-
-                                <!-- Core system with heartbeat at top -->
-                                <g class="system-element">
-                                    <!-- Ripple rings -->
-                                    <circle class="heartbeat-ring" cx="300" cy="180" r="28" style="animation-delay: 0s;"/>
-                                    <circle class="heartbeat-ring" cx="300" cy="180" r="28" style="animation-delay: 0.3s;"/>
-                                    <circle class="heartbeat-ring" cx="300" cy="180" r="28" style="animation-delay: 0.6s;"/>
-                                    
-                                    <!-- Outer pulse rings -->
-                                    <circle class="pulse-ring-outer" cx="300" cy="180" r="35"/>
-                                    <circle class="pulse-ring-mid" cx="300" cy="180" r="32"/>
-                                    
-                                    <!-- Core node with heartbeat -->
-                                    <circle class="core-node-pulse" cx="300" cy="180" r="28"/>
-                                    <circle class="core-node" cx="300" cy="180" r="28"/>
-                                    
-                                    <!-- Inner gradient rings -->
-                                    <circle class="inner-ring" cx="300" cy="180" r="24" fill="none" stroke="rgba(40,40,40,0.3)" stroke-width="0.5"/>
-                                    <circle class="inner-ring" cx="300" cy="180" r="20" fill="none" stroke="rgba(60,60,60,0.2)" stroke-width="0.5"/>
-                                    <circle class="inner-ring" cx="300" cy="180" r="16" fill="none" stroke="rgba(80,80,80,0.15)" stroke-width="0.5"/>
-                                    
-                                    <text x="300" y="305" text-anchor="middle" class="center-text">DVNC.AI</text>
-                                </g>
-
-                                <!-- Primary nodes (3 nodes) - Half filled -->
-                                <g>
-                                    <g class="system-element">
-                                        <!-- Machine Learning -->
-                                        <defs>
-                                            <clipPath id="halfClip1">
-                                                <rect x="184" y="334" width="32" height="16"/>
-                                            </clipPath>
-                                        </defs>
-                                        <circle cx="200" cy="350" r="16" fill="none" stroke="#1a1a1a" stroke-width="1"/>
-                                        <circle cx="200" cy="350" r="16" fill="#1a1a1a" clip-path="url(#halfClip1)"/>
-                                        <text x="200" y="385" text-anchor="middle" class="node-label">Machine</text>
-                                        <text x="200" y="396" text-anchor="middle" class="node-label">Learning</text>
-                                    </g>
-                                    
-                                    <g class="system-element">
-                                        <!-- Cross-Domain -->
-                                        <defs>
-                                            <clipPath id="halfClip2">
-                                                <rect x="284" y="334" width="32" height="16"/>
-                                            </clipPath>
-                                        </defs>
-                                        <circle cx="300" cy="350" r="16" fill="none" stroke="#1a1a1a" stroke-width="1"/>
-                                        <circle cx="300" cy="350" r="16" fill="#1a1a1a" clip-path="url(#halfClip2)"/>
-                                        <text x="300" y="385" text-anchor="middle" class="node-label">Cross-Domain</text>
-                                    </g>
-                                    
-                                    <g class="system-element">
-                                        <!-- Inventive Intelligence -->
-                                        <defs>
-                                            <clipPath id="halfClip3">
-                                                <rect x="384" y="334" width="32" height="16"/>
-                                            </clipPath>
-                                        </defs>
-                                        <circle cx="400" cy="350" r="16" fill="none" stroke="#1a1a1a" stroke-width="1"/>
-                                        <circle cx="400" cy="350" r="16" fill="#1a1a1a" clip-path="url(#halfClip3)"/>
-                                        <text x="400" y="385" text-anchor="middle" class="node-label">Inventive</text>
-                                        <text x="400" y="396" text-anchor="middle" class="node-label">Intelligence</text>
-                                    </g>
-                                </g>
-
-                                <!-- Secondary nodes (4 nodes) - Half filled -->
-                                <g>
-                                    <g class="system-element">
-                                        <!-- Quantum -->
-                                        <defs>
-                                            <clipPath id="halfClip4">
-                                                <rect x="128" y="480" width="44" height="22"/>
-                                            </clipPath>
-                                        </defs>
-                                        <circle cx="150" cy="480" r="22" fill="none" stroke="#2a2a2a" stroke-width="1"/>
-                                        <circle cx="150" cy="480" r="22" fill="#2a2a2a" clip-path="url(#halfClip4)"/>
-                                        <text x="150" y="515" text-anchor="middle" class="node-label">Quantum</text>
-                                    </g>
-                                    
-                                    <g class="system-element">
-                                        <!-- Neural -->
-                                        <defs>
-                                            <clipPath id="halfClip5">
-                                                <rect x="228" y="480" width="44" height="22"/>
-                                            </clipPath>
-                                        </defs>
-                                        <circle cx="250" cy="480" r="22" fill="none" stroke="#2a2a2a" stroke-width="1"/>
-                                        <circle cx="250" cy="480" r="22" fill="#2a2a2a" clip-path="url(#halfClip5)"/>
-                                        <text x="250" y="515" text-anchor="middle" class="node-label">Neural</text>
-                                    </g>
-                                    
-                                    <g class="system-element">
-                                        <!-- Golden Ratio -->
-                                        <defs>
-                                            <clipPath id="halfClip6">
-                                                <rect x="328" y="480" width="44" height="22"/>
-                                            </clipPath>
-                                        </defs>
-                                        <circle cx="350" cy="480" r="22" fill="none" stroke="#2a2a2a" stroke-width="1"/>
-                                        <circle cx="350" cy="480" r="22" fill="#2a2a2a" clip-path="url(#halfClip6)"/>
-                                        <text x="350" y="515" text-anchor="middle" class="node-label">Golden Ratio</text>
-                                    </g>
-                                    
-                                    <g class="system-element">
-                                        <!-- Future AI -->
-                                        <defs>
-                                            <clipPath id="halfClip7">
-                                                <rect x="428" y="480" width="44" height="22"/>
-                                            </clipPath>
-                                        </defs>
-                                        <circle cx="450" cy="480" r="22" fill="none" stroke="#2a2a2a" stroke-width="1"/>
-                                        <circle cx="450" cy="480" r="22" fill="#2a2a2a" clip-path="url(#halfClip7)"/>
-                                        <text x="450" y="515" text-anchor="middle" class="node-label">Future AI</text>
-                                    </g>
-                                </g>
-                            </svg>
+                        <div class="logo-section">
+                            <div class="main-circle"></div>
+                            <div class="brand-name">DVNC.AI</div>
+                        </div>
+                        
+                        <div class="features-container">
+                            <div class="feature-column">
+                                <div class="feature-item">
+                                    <div class="feature-circle">
+                                        <div class="half-fill"></div>
+                                    </div>
+                                    <div class="feature-text">Machine<br>Learning</div>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-circle">
+                                        <div class="half-fill"></div>
+                                    </div>
+                                    <div class="feature-text">Quantum</div>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-column">
+                                <div class="feature-item">
+                                    <div class="feature-circle">
+                                        <div class="half-fill"></div>
+                                    </div>
+                                    <div class="feature-text">Cross-Domain</div>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-circle">
+                                        <div class="half-fill"></div>
+                                    </div>
+                                    <div class="feature-text">Neural</div>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-column">
+                                <div class="feature-item">
+                                    <div class="feature-circle">
+                                        <div class="half-fill"></div>
+                                    </div>
+                                    <div class="feature-text">Inventive<br>Intelligence</div>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-circle">
+                                        <div class="half-fill"></div>
+                                    </div>
+                                    <div class="feature-text">Golden Ratio</div>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-column">
+                                <div class="feature-item">
+                                    <div class="feature-circle">
+                                        <div class="half-fill"></div>
+                                    </div>
+                                    <div class="feature-text">Future AI</div>
+                                </div>
+                            </div>
                         </div>
                         
                         <div class="input-container">
