@@ -296,23 +296,16 @@
             border: 1px solid var(--border);
             border-radius: 50%;
             opacity: 0.2;
-        }
-
-        .orbit.inner {
-            width: 250px;
-            height: 250px;
-        }
-
-        .orbit.outer {
-            width: 450px;
-            height: 450px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
         }
 
         /* Central node */
         .central-node {
             position: absolute;
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             border-radius: 50%;
             display: flex;
@@ -322,29 +315,31 @@
             z-index: 10;
             box-shadow: 0 0 40px rgba(44, 62, 80, 0.3);
             animation: heartbeat 2s ease-in-out infinite;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
         }
 
         @keyframes heartbeat {
             0%, 100% {
-                transform: scale(1);
+                transform: translate(-50%, -50%) scale(1);
                 box-shadow: 0 0 40px rgba(44, 62, 80, 0.3);
             }
             45% {
-                transform: scale(1.05);
+                transform: translate(-50%, -50%) scale(1.05);
                 box-shadow: 0 0 60px rgba(44, 62, 80, 0.4);
             }
             50% {
-                transform: scale(1.03);
+                transform: translate(-50%, -50%) scale(1.03);
                 box-shadow: 0 0 50px rgba(44, 62, 80, 0.35);
             }
         }
 
         .central-logo {
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 700;
             color: white;
             letter-spacing: -0.5px;
-            margin-bottom: 4px;
         }
 
         /* Knowledge nodes */
@@ -362,6 +357,8 @@
             cursor: pointer;
             transition: all 0.3s var(--transition);
             box-shadow: var(--shadow-sm);
+            font-size: 10px;
+            text-align: center;
         }
 
         .knowledge-node-orbit:hover {
@@ -371,69 +368,15 @@
         }
 
         .knowledge-node-orbit.primary {
-            width: 80px;
-            height: 80px;
+            width: 75px;
+            height: 75px;
             font-weight: 600;
         }
 
         .knowledge-node-orbit.secondary {
-            width: 60px;
-            height: 60px;
-            font-size: 12px;
-        }
-
-        /* Position nodes */
-        .node-mechanics {
-            top: 50%;
-            left: 0;
-            transform: translate(-50%, -50%);
-            border-color: var(--mechanics);
-        }
-
-        .node-cross-domain {
-            top: 20%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            border-color: var(--accent);
-        }
-
-        .node-intelligence {
-            top: 50%;
-            right: 0;
-            transform: translate(50%, -50%);
-            border-color: var(--success);
-        }
-
-        .node-quantum {
-            bottom: 15%;
-            left: 20%;
-            transform: translate(-50%, 50%);
-        }
-
-        .node-neural {
-            bottom: 15%;
-            left: 40%;
-            transform: translate(-50%, 50%);
-        }
-
-        .node-golden {
-            bottom: 15%;
-            right: 40%;
-            transform: translate(50%, 50%);
-        }
-
-        .node-futurist {
-            bottom: 15%;
-            right: 20%;
-            transform: translate(50%, 50%);
-        }
-
-        .node-label {
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: var(--text-secondary);
-            text-align: center;
+            width: 65px;
+            height: 65px;
+            font-size: 9px;
         }
 
         /* Connection lines */
@@ -472,7 +415,7 @@
         /* Header text */
         .vitruvian-header {
             position: absolute;
-            top: 10px;
+            top: 20px;
             left: 50%;
             transform: translateX(-50%);
             text-align: center;
@@ -1347,87 +1290,103 @@
             <div class="chat-container" id="chatContainer">
                 <div class="welcome-state" id="welcomeState">
                     <div class="vitruvian-container">
-                        <!-- Grid overlay - matching the exact grid from image -->
+                        <!-- Grid overlay -->
                         <div class="vitruvian-grid">
-                            <div class="grid-line horizontal" style="top: 16.66%"></div>
-                            <div class="grid-line horizontal" style="top: 33.33%"></div>
+                            <div class="grid-line horizontal" style="top: 25%"></div>
                             <div class="grid-line horizontal" style="top: 50%"></div>
-                            <div class="grid-line horizontal" style="top: 66.66%"></div>
-                            <div class="grid-line horizontal" style="top: 83.33%"></div>
-                            <div class="grid-line vertical" style="left: 16.66%"></div>
-                            <div class="grid-line vertical" style="left: 33.33%"></div>
+                            <div class="grid-line horizontal" style="top: 75%"></div>
+                            <div class="grid-line vertical" style="left: 25%"></div>
                             <div class="grid-line vertical" style="left: 50%"></div>
-                            <div class="grid-line vertical" style="left: 66.66%"></div>
-                            <div class="grid-line vertical" style="left: 83.33%"></div>
+                            <div class="grid-line vertical" style="left: 75%"></div>
                         </div>
 
-                        <!-- Large outer circle -->
-                        <div class="orbit outer" style="width: 500px; height: 500px;"></div>
-                        
-                        <!-- Inner circle -->
-                        <div class="orbit inner" style="width: 300px; height: 300px;"></div>
+                        <!-- Multiple concentric circles for galaxy effect -->
+                        <div class="orbit" style="width: 520px; height: 520px; opacity: 0.1;"></div>
+                        <div class="orbit" style="width: 420px; height: 420px; opacity: 0.15;"></div>
+                        <div class="orbit" style="width: 320px; height: 320px; opacity: 0.2;"></div>
+                        <div class="orbit" style="width: 220px; height: 220px; opacity: 0.25;"></div>
 
-                        <!-- Curved connection lines (SVG) -->
+                        <!-- Curved connection lines (SVG) - Symmetrical design -->
                         <svg style="position: absolute; width: 100%; height: 100%; pointer-events: none;">
-                            <!-- Lines from top circle to middle nodes -->
-                            <path d="M 300 150 Q 250 200 200 300" stroke="var(--border)" stroke-width="1" fill="none" opacity="0.3"/>
-                            <path d="M 300 150 Q 300 200 300 300" stroke="var(--border)" stroke-width="1" fill="none" opacity="0.3"/>
-                            <path d="M 300 150 Q 350 200 400 300" stroke="var(--border)" stroke-width="1" fill="none" opacity="0.3"/>
+                            <!-- Define gradients for galaxy effect -->
+                            <defs>
+                                <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:var(--primary);stop-opacity:0" />
+                                    <stop offset="50%" style="stop-color:var(--accent);stop-opacity:0.3" />
+                                    <stop offset="100%" style="stop-color:var(--primary);stop-opacity:0" />
+                                </linearGradient>
+                            </defs>
                             
-                            <!-- Lines from middle to bottom nodes -->
-                            <path d="M 200 300 Q 180 350 150 400" stroke="var(--border)" stroke-width="1" fill="none" opacity="0.3"/>
-                            <path d="M 300 300 Q 270 350 240 400" stroke="var(--border)" stroke-width="1" fill="none" opacity="0.3"/>
-                            <path d="M 300 300 Q 330 350 360 400" stroke="var(--border)" stroke-width="1" fill="none" opacity="0.3"/>
-                            <path d="M 400 300 Q 420 350 450 400" stroke="var(--border)" stroke-width="1" fill="none" opacity="0.3"/>
+                            <!-- Radial connection lines from center -->
+                            <line x1="300" y1="300" x2="300" y2="100" stroke="url(#lineGradient)" stroke-width="1"/>
+                            <line x1="300" y1="300" x2="424" y2="176" stroke="url(#lineGradient)" stroke-width="1"/>
+                            <line x1="300" y1="300" x2="500" y2="300" stroke="url(#lineGradient)" stroke-width="1"/>
+                            <line x1="300" y1="300" x2="424" y2="424" stroke="url(#lineGradient)" stroke-width="1"/>
+                            <line x1="300" y1="300" x2="300" y2="500" stroke="url(#lineGradient)" stroke-width="1"/>
+                            <line x1="300" y1="300" x2="176" y2="424" stroke="url(#lineGradient)" stroke-width="1"/>
+                            <line x1="300" y1="300" x2="100" y2="300" stroke="url(#lineGradient)" stroke-width="1"/>
+                            <line x1="300" y1="300" x2="176" y2="176" stroke="url(#lineGradient)" stroke-width="1"/>
+                            
+                            <!-- Curved orbital paths -->
+                            <path d="M 300 160 Q 380 230, 440 300 T 300 440 T 160 300 T 300 160" 
+                                  stroke="var(--border)" stroke-width="0.5" fill="none" opacity="0.2"/>
+                            <path d="M 300 200 Q 350 250, 400 300 T 300 400 T 200 300 T 300 200" 
+                                  stroke="var(--border)" stroke-width="0.5" fill="none" opacity="0.15"/>
                         </svg>
 
                         <!-- Header text at very top -->
-                        <div class="vitruvian-header" style="top: -40px;">
+                        <div class="vitruvian-header" style="top: 20px;">
                             <div class="vitruvian-title">Leonardo's Intelligence. Reimagined for the 21st Century.</div>
                         </div>
 
-                        <!-- TOP: Central pulsating node (matching image position) -->
-                        <div class="central-node" style="top: 150px; left: 50%; transform: translateX(-50%);">
+                        <!-- Central pulsating node -->
+                        <div class="central-node" style="width: 100px; height: 100px;">
                             <div class="central-logo">DVNC.AI</div>
                         </div>
 
-                        <!-- MIDDLE ROW: Three primary nodes -->
-                        <div class="knowledge-node-orbit primary" style="top: 300px; left: 200px; transform: translate(-50%, -50%);">
+                        <!-- Primary nodes in perfect circle (3 nodes at 120° intervals) -->
+                        <div class="knowledge-node-orbit primary" style="position: absolute; top: 160px; left: 50%; transform: translateX(-50%);">
                             <div class="node-label">MECHANICS<br>PHYSICS</div>
                         </div>
-                        <div class="knowledge-node-orbit primary" style="top: 300px; left: 50%; transform: translate(-50%, -50%);">
+                        <div class="knowledge-node-orbit primary" style="position: absolute; top: 50%; right: 160px; transform: translateY(-50%);">
                             <div class="node-label">CROSS-DOMAIN</div>
                         </div>
-                        <div class="knowledge-node-orbit primary" style="top: 300px; left: 400px; transform: translate(-50%, -50%);">
+                        <div class="knowledge-node-orbit primary" style="position: absolute; top: 50%; left: 160px; transform: translateY(-50%);">
                             <div class="node-label">CREATIVE<br>INTELLIGENCE</div>
                         </div>
 
-                        <!-- BOTTOM ROW: Four secondary nodes -->
-                        <div class="knowledge-node-orbit secondary" style="top: 400px; left: 150px; transform: translate(-50%, -50%);">
+                        <!-- Secondary nodes in outer circle (4 nodes at 90° intervals, offset by 45°) -->
+                        <div class="knowledge-node-orbit secondary" style="position: absolute; top: 120px; right: 180px;">
                             <div class="node-label">QUANTUM</div>
                         </div>
-                        <div class="knowledge-node-orbit secondary" style="top: 400px; left: 240px; transform: translate(-50%, -50%);">
+                        <div class="knowledge-node-orbit secondary" style="position: absolute; bottom: 120px; right: 180px;">
                             <div class="node-label">NEURAL</div>
                         </div>
-                        <div class="knowledge-node-orbit secondary" style="top: 400px; left: 360px; transform: translate(-50%, -50%);">
-                            <div class="node-label">GOLDEN RATIO</div>
+                        <div class="knowledge-node-orbit secondary" style="position: absolute; bottom: 120px; left: 180px;">
+                            <div class="node-label">GOLDEN<br>RATIO</div>
                         </div>
-                        <div class="knowledge-node-orbit secondary" style="top: 400px; left: 450px; transform: translate(-50%, -50%);">
-                            <div class="node-label">FUTURIST AI</div>
+                        <div class="knowledge-node-orbit secondary" style="position: absolute; top: 120px; left: 180px;">
+                            <div class="node-label">FUTURIST<br>AI</div>
                         </div>
 
-                        <!-- Floating dots matching image positions -->
-                        <div class="floating-dot" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
-                        <div class="floating-dot" style="top: 35%; right: 8%; animation-delay: 2s;"></div>
-                        <div class="floating-dot" style="top: 15%; right: 20%; animation-delay: 3s;"></div>
-                        <div class="floating-dot" style="bottom: 35%; left: 5%; animation-delay: 4s;"></div>
-                        <div class="floating-dot" style="bottom: 25%; right: 10%; animation-delay: 5s;"></div>
-                        <div class="floating-dot" style="top: 55%; left: 12%; animation-delay: 6s;"></div>
-                        <div class="floating-dot" style="top: 65%; right: 15%; animation-delay: 7s;"></div>
-                        <div class="floating-dot" style="bottom: 45%; right: 5%; animation-delay: 8s;"></div>
+                        <!-- Floating dots in symmetrical pattern -->
+                        <div class="floating-dot" style="top: 15%; left: 15%; animation-delay: 0s;"></div>
+                        <div class="floating-dot" style="top: 15%; right: 15%; animation-delay: 1s;"></div>
+                        <div class="floating-dot" style="top: 50%; right: 10%; animation-delay: 2s;"></div>
+                        <div class="floating-dot" style="bottom: 15%; right: 15%; animation-delay: 3s;"></div>
+                        <div class="floating-dot" style="bottom: 15%; left: 15%; animation-delay: 4s;"></div>
+                        <div class="floating-dot" style="top: 50%; left: 10%; animation-delay: 5s;"></div>
+                        <div class="floating-dot" style="top: 35%; left: 35%; animation-delay: 6s;"></div>
+                        <div class="floating-dot" style="bottom: 35%; right: 35%; animation-delay: 7s;"></div>
+                        
+                        <!-- Additional dots for galaxy effect -->
+                        <div class="floating-dot" style="top: 25%; left: 50%; animation-delay: 1.5s; width: 3px; height: 3px;"></div>
+                        <div class="floating-dot" style="bottom: 25%; left: 50%; animation-delay: 2.5s; width: 3px; height: 3px;"></div>
+                        <div class="floating-dot" style="top: 50%; left: 25%; animation-delay: 3.5s; width: 3px; height: 3px;"></div>
+                        <div class="floating-dot" style="top: 50%; right: 25%; animation-delay: 4.5s; width: 3px; height: 3px;"></div>
                     </div>
 
-                    <!-- Input section at bottom (matching image) -->
+                    <!-- Input section at bottom -->
                     <div class="input-section">
                         <div class="input-container">
                             <span style="color: var(--text-tertiary); font-size: 13px; margin-right: 8px;">Ask DVNC.AI anything...</span>
