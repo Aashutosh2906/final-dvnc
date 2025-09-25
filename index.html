@@ -1577,6 +1577,122 @@
         }
 
         function formatProduct(data) {
+            // Special case for sustainable packaging solution
+            if (selectedPrompt === "a sustainable packaging solution for electronics") {
+                return `
+                    <div class="product-section">
+                        <div class="product-header">
+                            <div class="product-name">${data.name}</div>
+                            <div class="product-market">Target Market: ${data.target_market}</div>
+                        </div>
+                        
+                        <div class="scores-container">
+                            <div class="score-item">
+                                <div class="score-label">Innovation Score</div>
+                                <div class="score-value">${data.innovation_score}/10</div>
+                                <div class="score-bar">
+                                    <div class="score-fill" style="width: ${data.innovation_score * 10}%"></div>
+                                </div>
+                            </div>
+                            <div class="score-item">
+                                <div class="score-label">Feasibility Score</div>
+                                <div class="score-value">${data.feasibility_score}/10</div>
+                                <div class="score-bar">
+                                    <div class="score-fill" style="width: ${data.feasibility_score * 10}%"></div>
+                                </div>
+                            </div>
+                            <div class="score-item">
+                                <div class="score-label">Market Viability</div>
+                                <div class="score-value">${(data.viability_score * 100).toFixed(0)}%</div>
+                                <div class="score-bar">
+                                    <div class="score-fill" style="width: ${data.viability_score * 100}%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="product-description">
+                            <h3>Final Product Design</h3>
+                            
+                            <div class="product-highlights">
+                                <p class="summary-text" style="font-style: italic; margin-bottom: 20px;">
+                                    As I once studied the mechanics of flight to understand the bird, today's designers must study the mechanics of protection to understand sustainable packaging. The principles remain eternal—only the canvas has changed from parchment to pixels, from pigment to polymer.
+                                </p>
+                                
+                                <ul class="highlight-list">
+                                    <li class="highlight-item">
+                                        <div class="highlight-text">
+                                            <span class="highlight-feature">Golden Ratio Integration: The Mathematics of Visual Harmony</span><br>
+                                            Your users' eyes still follow the same proportional relationships I mapped centuries ago. Apply the 1.618 ratio not as decoration, but as foundational architecture—packaging dimensions, interface proportions, even the rhythm of your unboxing experience. This isn't aesthetic theory; it's cognitive science disguised as mathematics. 
+                                            <em style="color: var(--text-tertiary);">Status: Conceptual—validate through A/B testing and user eye-tracking studies.</em>
+                                        </div>
+                                    </li>
+                                    
+                                    <li class="highlight-item">
+                                        <div class="highlight-text">
+                                            <span class="highlight-feature">Shadow-Forward Design: Negative Space as Functional Element</span><br>
+                                            What I learned painting faces, you must learn designing experiences: shadows define form more powerfully than highlights. Use recessed surfaces, strategic voids, and material transparency not just for protection, but for intuitive user guidance. The empty spaces tell users where to grip, how to open, what to expect. 
+                                            <em style="color: var(--text-tertiary);">Status: Production-ready—implement through established molding and cutting processes.</em>
+                                        </div>
+                                    </li>
+                                    
+                                    <li class="highlight-item">
+                                        <div class="highlight-text">
+                                            <span class="highlight-feature">Dynamic Responsiveness: Motion as User Experience</span><br>
+                                            I wrote "motion is the cause of every life" while studying anatomy. Your packaging should embody this—materials that respond to pressure, structures that guide movement, systems that adapt to different product configurations. Think origami meets engineering meets user psychology. 
+                                            <em style="color: var(--text-tertiary);">Status: Prototype phase—iterate based on user interaction data.</em>
+                                        </div>
+                                    </li>
+                                    
+                                    <li class="highlight-item">
+                                        <div class="highlight-text">
+                                            <span class="highlight-feature">Structural Biomimicry: Engineering Lessons from Nature's Archive</span><br>
+                                            The hexagonal efficiency of honeycomb, the load distribution of tree branches, the shock absorption of human joints—these aren't just inspiration, they're proven engineering solutions waiting for industrial application. Apply these geometries to reduce material usage while increasing protective performance. 
+                                            <em style="color: var(--text-tertiary);">Status: Production-ready—leverage existing manufacturing capabilities.</em>
+                                        </div>
+                                    </li>
+                                    
+                                    <li class="highlight-item">
+                                        <div class="highlight-text">
+                                            <span class="highlight-feature">Ergonomic Intelligence: The Hand-Brain Connection</span><br>
+                                            I studied human anatomy to understand how bodies move through space. Today's packaging must understand how fingers navigate interfaces, how hands process tactile information, how the brain interprets physical feedback. Design for the conversation between user and object. 
+                                            <em style="color: var(--text-tertiary);">Status: Conceptual—requires extensive user research and haptic testing.</em>
+                                        </div>
+                                    </li>
+                                    
+                                    <li class="highlight-item">
+                                        <div class="highlight-text">
+                                            <span class="highlight-feature">Precision Through Mathematical Constraints: Systems Thinking</span><br>
+                                            My engineering notebooks were filled with calculations because beauty without function is merely decoration. Your sustainable solutions must balance material science, manufacturing economics, user psychology, and environmental impact through rigorous mathematical optimization. Constraint breeds innovation. 
+                                            <em style="color: var(--text-tertiary);">Status: Conceptual—develop through iterative modeling and lifecycle analysis.</em>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="product-summary">
+                                <h4 style="font-size: 16px; color: var(--primary); margin-bottom: 16px; font-weight: 600;">The Modern Synthesis</h4>
+                                <p class="summary-text">
+                                    This approach achieves ${(data.viability_score * 100).toFixed(0)}% market viability not through compromise, but through the systematic application of timeless principles to contemporary challenges. Innovation score of ${data.innovation_score}/10 reflects not incremental improvement, but paradigm integration—where Renaissance humanism meets data-driven design methodology.
+                                </p>
+                                <p class="summary-text" style="margin-top: 16px;">
+                                    The designer who understands that a user's first touch of packaging creates the same neurological response as a viewer's first glimpse of the Mona Lisa will create solutions that transcend mere functionality. They will craft experiences that feel inevitable, necessary, and somehow always meant to be.
+                                </p>
+                                <p class="summary-text" style="margin-top: 20px; font-style: italic; font-weight: 600;">
+                                    Study the old masters. Ship the new solutions. The future belongs to those who can synthesize across centuries.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="principles-list">
+                            <div class="principle-tag">⚙ Mechanics & Physics</div>
+                            <div class="principle-tag">🦋 Anatomy & Biology</div>
+                            <div class="principle-tag">👁 Optics & Aesthetics</div>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // Default formatting for all other prompts
             const featuresList = data.features.map(feat => `
                 <li class="highlight-item">
                     <div class="highlight-text">
