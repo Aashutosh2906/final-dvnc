@@ -1279,7 +1279,36 @@
             box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
         }
 
-        /* Loading State */
+        /* New Chat Button */
+        .new-chat-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+            color: white;
+            border: none;
+            border-radius: 24px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s var(--transition);
+            display: none;
+            align-items: center;
+            gap: 8px;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+        }
+
+        .new-chat-btn:hover {
+            background: linear-gradient(135deg, #9B7B00, var(--accent-dark));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(212, 175, 55, 0.4);
+        }
+
+        .new-chat-btn.visible {
+            display: flex;
+        }
         .loading-pulse {
             display: inline-block;
             width: 8px;
@@ -1367,11 +1396,11 @@
         <!-- Header -->
         <div class="header">
             <div class="logo">
-                <div class="logo-mark">DV</div>
-                <div class="logo-text">DVNC.AI</div>
+                <img src="https://static.wixstatic.com/media/33c4b5_158b573e4df145c7856f1330dbd9e49d~mv2.jpg" alt="DVNC.AI" style="height: 36px; width: auto; border-radius: 8px;">
             </div>
-            <div class="partner-logo">
+            <div class="partner-logo" style="display: flex; align-items: center; gap: 10px;">
                 <img src="https://static.wixstatic.com/media/33c4b5_79ea16e09e1b471dae81c5dffb012bb4~mv2.jpeg" alt="TAAMCrypto" style="height: 40px; width: 40px; border-radius: 50%; object-fit: cover;">
+                <span style="font-size: 14px; font-weight: 600; color: var(--text-secondary);">TAAMCrypto</span>
             </div>
         </div>
 
@@ -1467,6 +1496,11 @@
                     </div>
                 </div>
             </div>
+            <!-- New Chat Button -->
+            <button class="new-chat-btn" id="newChatBtn" onclick="startNewChat()">
+                <span>↻</span>
+                <span>New Chat</span>
+            </button>
         </div>
     </div>
 
@@ -1693,15 +1727,19 @@
             }
             
             // Default formatting for all other prompts
-            const featuresList = data.features.map(feat => `
-                <li class="highlight-item">
-                    <div class="highlight-text">
-                        <span class="highlight-feature">${feat.description}</span> - 
-                        Inspired by "${feat.inspiration}", this feature is currently at 
-                        ${feat.stage.toLowerCase().replace('_', ' ')} stage. ${feat.notes}.
-                    </div>
-                </li>
-            `).join('');
+            const featuresList = data.features.map(feat => {
+                // Remove source part from inspiration (everything after ||)
+                const inspirationOnly = feat.inspiration.split('||')[0].trim();
+                return `
+                    <li class="highlight-item">
+                        <div class="highlight-text">
+                            <span class="highlight-feature">${feat.description}</span> - 
+                            Inspired by "${inspirationOnly}", this feature is currently at 
+                            ${feat.stage.toLowerCase().replace('_', ' ')} stage. ${feat.notes}.
+                        </div>
+                    </li>
+                `;
+            }).join('');
 
             return `
                 <div class="product-section">
@@ -1764,6 +1802,11 @@
             `;
         }
 
+        function startNewChat() {
+            // Reload the page to return to homepage
+            window.location.reload();
+        }
+
         async function generateDesign() {
             if (!selectedPrompt || isGenerating) return;
             
@@ -1774,6 +1817,9 @@
             const chatContainer = document.getElementById('chatContainer');
             const welcomeState = document.getElementById('welcomeState');
             if (welcomeState) welcomeState.remove();
+            
+            // Show the New Chat button
+            document.getElementById('newChatBtn').classList.add('visible');
             
             chatContainer.innerHTML = createMessageThread(selectedPrompt);
             const aiMessage = document.getElementById('aiMessage');
