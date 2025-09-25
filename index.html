@@ -302,11 +302,11 @@
 
         /* Main pulsating circle with heartbeat effect */
         .main-circle {
-            width: 60px;
-            height: 60px;
+            width: 48px;
+            height: 48px;
             background: black;
             border-radius: 50%;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             opacity: 0;
             animation: scaleIn 0.8s ease forwards 0.3s, heartbeat 2s ease-in-out infinite 0.8s;
             position: relative;
@@ -380,10 +380,10 @@
         }
 
         .brand-name {
-            font-size: 3.5em;
+            font-size: 3em;
             letter-spacing: 10px;
             font-weight: 300;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             opacity: 0;
             animation: fadeInUp 1s ease forwards 0.5s;
         }
@@ -403,8 +403,8 @@
         .features-wrapper {
             position: relative;
             width: 400px;
-            height: 180px;
-            margin-bottom: 20px;
+            height: 140px;
+            margin-bottom: 15px;
         }
 
         .features-container {
@@ -428,7 +428,7 @@
 
         .feature-row {
             display: flex;
-            gap: 50px;
+            gap: 45px;
             align-items: center;
             z-index: 10;
             position: relative;
@@ -436,8 +436,9 @@
 
         .feature-row-secondary {
             display: flex;
-            gap: 40px;
-            margin-top: 30px;
+            gap: 35px;
+            margin-top: 20px;
+            margin-bottom: 30px;
             justify-content: center;
         }
 
@@ -466,14 +467,14 @@
 
         /* Half-filled circles like in second code */
         .feature-circle {
-            width: 40px;
-            height: 40px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             border: 1px solid #1a1a1a;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease;
@@ -499,14 +500,14 @@
         }
 
         .feature-circle-secondary {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             border: 1px solid #2a2a2a;
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .feature-circle-secondary:hover {
@@ -519,9 +520,9 @@
         }
 
         .feature-text {
-            font-size: 0.75em;
+            font-size: 0.7em;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.8px;
             color: #666;
             text-align: center;
         }
@@ -532,6 +533,7 @@
             position: relative;
             opacity: 0;
             animation: slideUp 1s ease forwards 1.2s;
+            margin-top: 20px;
         }
 
         @keyframes slideUp {
@@ -1398,22 +1400,22 @@
                         <!-- New layout matching second code structure -->
                         <div class="features-wrapper">
                             <!-- SVG for energy beams with corrected coordinates -->
-                            <svg style="position: absolute; width: 100%; height: 300px; top: -60px; left: 0; pointer-events: none;" viewBox="0 0 400 300">
+                            <svg style="position: absolute; width: 100%; height: 260px; top: -50px; left: 0; pointer-events: none;" viewBox="0 0 400 260">
                                 <!-- Energy beams from main circle to primary nodes -->
                                 <g class="beam-system">
-                                    <!-- From main circle (200, 40) to primary nodes at y=130 -->
-                                    <path class="beam-path" d="M 200 40 Q 140 85 80 130"/>
-                                    <path class="beam-path" d="M 200 40 Q 200 85 200 130"/>
-                                    <path class="beam-path" d="M 200 40 Q 260 85 320 130"/>
+                                    <!-- From main circle (200, 35) to primary nodes at y=110 -->
+                                    <path class="beam-path" d="M 200 35 Q 140 72 80 110"/>
+                                    <path class="beam-path" d="M 200 35 Q 200 72 200 110"/>
+                                    <path class="beam-path" d="M 200 35 Q 260 72 320 110"/>
                                     
                                     <!-- From primary nodes to secondary nodes -->
-                                    <!-- From left primary (80, 130) to two secondary nodes -->
-                                    <path class="beam-path" d="M 80 130 Q 60 180 40 230"/>
-                                    <path class="beam-path" d="M 80 130 Q 110 180 140 230"/>
+                                    <!-- From left primary (80, 110) to two secondary nodes -->
+                                    <path class="beam-path" d="M 80 110 Q 60 155 40 200"/>
+                                    <path class="beam-path" d="M 80 110 Q 110 155 140 200"/>
                                     
-                                    <!-- From right primary (320, 130) to two secondary nodes -->
-                                    <path class="beam-path" d="M 320 130 Q 290 180 260 230"/>
-                                    <path class="beam-path" d="M 320 130 Q 340 180 360 230"/>
+                                    <!-- From right primary (320, 110) to two secondary nodes -->
+                                    <path class="beam-path" d="M 320 110 Q 290 155 260 200"/>
+                                    <path class="beam-path" d="M 320 110 Q 340 155 360 200"/>
                                 </g>
                             </svg>
                             
