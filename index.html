@@ -417,27 +417,13 @@
             height: 100%;
         }
 
-        /* Energy beams matching second code */
+        /* Energy beams - constant visibility */
         .beam-path {
             stroke: #000000;
-            stroke-width: 0.8;
+            stroke-width: 0.5;
             fill: none;
-            opacity: 0;
+            opacity: 0.15;
             stroke-linecap: round;
-            animation: beamPulse 4s ease-in-out infinite;
-        }
-
-        .beam-path:nth-child(odd) {
-            animation-delay: 0.5s;
-        }
-
-        .beam-path:nth-child(even) {
-            animation-delay: 1.5s;
-        }
-
-        @keyframes beamPulse {
-            0%, 100% { opacity: 0; }
-            50% { opacity: 0.3; }
         }
 
         .feature-row {
@@ -1412,18 +1398,22 @@
                         <!-- New layout matching second code structure -->
                         <div class="features-wrapper">
                             <!-- SVG for energy beams with corrected coordinates -->
-                            <svg style="position: absolute; width: 100%; height: 300px; top: -80px; left: 0; pointer-events: none;" viewBox="0 0 400 300">
+                            <svg style="position: absolute; width: 100%; height: 300px; top: -60px; left: 0; pointer-events: none;" viewBox="0 0 400 300">
                                 <!-- Energy beams from main circle to primary nodes -->
                                 <g class="beam-system">
-                                    <path class="beam-path" d="M 200 60 Q 140 90 80 150"/>
-                                    <path class="beam-path" d="M 200 60 Q 200 100 200 150"/>
-                                    <path class="beam-path" d="M 200 60 Q 260 90 320 150"/>
+                                    <!-- From main circle (200, 40) to primary nodes at y=130 -->
+                                    <path class="beam-path" d="M 200 40 Q 140 85 80 130"/>
+                                    <path class="beam-path" d="M 200 40 Q 200 85 200 130"/>
+                                    <path class="beam-path" d="M 200 40 Q 260 85 320 130"/>
                                     
-                                    <!-- Energy beams from primary to secondary nodes -->
-                                    <path class="beam-path" d="M 80 150 Q 60 200 40 250"/>
-                                    <path class="beam-path" d="M 80 150 Q 110 200 140 250"/>
-                                    <path class="beam-path" d="M 320 150 Q 290 200 260 250"/>
-                                    <path class="beam-path" d="M 320 150 Q 340 200 360 250"/>
+                                    <!-- From primary nodes to secondary nodes -->
+                                    <!-- From left primary (80, 130) to two secondary nodes -->
+                                    <path class="beam-path" d="M 80 130 Q 60 180 40 230"/>
+                                    <path class="beam-path" d="M 80 130 Q 110 180 140 230"/>
+                                    
+                                    <!-- From right primary (320, 130) to two secondary nodes -->
+                                    <path class="beam-path" d="M 320 130 Q 290 180 260 230"/>
+                                    <path class="beam-path" d="M 320 130 Q 340 180 360 230"/>
                                 </g>
                             </svg>
                             
