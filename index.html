@@ -304,12 +304,13 @@
         .main-circle {
             width: 48px;
             height: 48px;
-            background: black;
+            background: linear-gradient(135deg, #B8960F, #D4AF37);
             border-radius: 50%;
             margin-bottom: 25px;
             opacity: 0;
             animation: scaleIn 0.8s ease forwards 0.3s, heartbeat 2s ease-in-out infinite 0.8s;
             position: relative;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
         }
 
         /* Heartbeat animation from second code */
@@ -346,7 +347,7 @@
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            border: 1px solid rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.3);
             transform: translate(-50%, -50%);
             animation: ripple 2s ease-out infinite;
         }
@@ -470,7 +471,7 @@
             width: 32px;
             height: 32px;
             border-radius: 50%;
-            border: 1px solid #1a1a1a;
+            border: 1px solid #6a6a6a;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -482,7 +483,7 @@
 
         .feature-circle:hover {
             transform: scale(1.1);
-            border-color: #000;
+            border-color: #888;
         }
 
         .half-fill {
@@ -491,7 +492,7 @@
             left: 0;
             right: 0;
             height: 50%;
-            background: #1a1a1a;
+            background: #5a5a5a;
             transition: height 0.3s ease;
         }
 
@@ -503,7 +504,7 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            border: 1px solid #2a2a2a;
+            border: 1px solid #6a6a6a;
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease;
@@ -512,11 +513,11 @@
 
         .feature-circle-secondary:hover {
             transform: scale(1.08);
-            border-color: #1a1a1a;
+            border-color: #888;
         }
 
         .feature-circle-secondary .half-fill {
-            background: #2a2a2a;
+            background: #5a5a5a;
             bottom: 0;
             top: auto;
         }
@@ -1401,7 +1402,39 @@
                         
                         <!-- New layout matching second code structure -->
                         <div class="features-wrapper">
-                            <!-- Connection lines removed as requested -->
+                            <!-- Da Vinci-inspired geometric galaxy lines -->
+                            <svg style="position: absolute; width: 100%; height: 280px; top: -70px; left: 0; pointer-events: none;" viewBox="0 0 400 280">
+                                <!-- Geometric constellation lines connecting all planets -->
+                                <g class="galaxy-lines">
+                                    <!-- Central sun rays to all planets -->
+                                    <!-- To first row planets -->
+                                    <line x1="200" y1="40" x2="100" y2="140" stroke="#D4AF37" stroke-width="0.25" opacity="0.2"/>
+                                    <line x1="200" y1="40" x2="200" y2="140" stroke="#D4AF37" stroke-width="0.25" opacity="0.2"/>
+                                    <line x1="200" y1="40" x2="300" y2="140" stroke="#D4AF37" stroke-width="0.25" opacity="0.2"/>
+                                    
+                                    <!-- To second row planets -->
+                                    <line x1="200" y1="40" x2="75" y2="220" stroke="#D4AF37" stroke-width="0.2" opacity="0.15"/>
+                                    <line x1="200" y1="40" x2="150" y2="220" stroke="#D4AF37" stroke-width="0.2" opacity="0.15"/>
+                                    <line x1="200" y1="40" x2="250" y2="220" stroke="#D4AF37" stroke-width="0.2" opacity="0.15"/>
+                                    <line x1="200" y1="40" x2="325" y2="220" stroke="#D4AF37" stroke-width="0.2" opacity="0.15"/>
+                                    
+                                    <!-- Interconnecting planetary lines - horizontal connections -->
+                                    <line x1="100" y1="140" x2="300" y2="140" stroke="#888" stroke-width="0.2" opacity="0.1"/>
+                                    <line x1="75" y1="220" x2="325" y2="220" stroke="#888" stroke-width="0.2" opacity="0.08"/>
+                                    
+                                    <!-- Cross connections between rows -->
+                                    <line x1="100" y1="140" x2="150" y2="220" stroke="#888" stroke-width="0.15" opacity="0.08"/>
+                                    <line x1="300" y1="140" x2="250" y2="220" stroke="#888" stroke-width="0.15" opacity="0.08"/>
+                                    
+                                    <!-- Diagonal cross-pattern -->
+                                    <line x1="100" y1="140" x2="250" y2="220" stroke="#888" stroke-width="0.15" opacity="0.06"/>
+                                    <line x1="300" y1="140" x2="150" y2="220" stroke="#888" stroke-width="0.15" opacity="0.06"/>
+                                    
+                                    <!-- Orbital circles for da Vinci effect -->
+                                    <circle cx="200" cy="40" r="120" fill="none" stroke="#D4AF37" stroke-width="0.15" opacity="0.05"/>
+                                    <circle cx="200" cy="40" r="200" fill="none" stroke="#D4AF37" stroke-width="0.15" opacity="0.03"/>
+                                </g>
+                            </svg>
                             
                             <div class="features-container">
                                 <div class="feature-row">
