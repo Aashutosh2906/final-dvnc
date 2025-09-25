@@ -1399,23 +1399,33 @@
                         
                         <!-- New layout matching second code structure -->
                         <div class="features-wrapper">
-                            <!-- SVG for energy beams with corrected coordinates -->
+                            <!-- SVG for energy beams with precise geometric lines -->
                             <svg style="position: absolute; width: 100%; height: 260px; top: -50px; left: 0; pointer-events: none;" viewBox="0 0 400 260">
-                                <!-- Energy beams from main circle to primary nodes -->
+                                <!-- Geometric connection lines -->
                                 <g class="beam-system">
-                                    <!-- From main circle (200, 35) to primary nodes at y=110 -->
-                                    <path class="beam-path" d="M 200 35 Q 140 72 80 110"/>
-                                    <path class="beam-path" d="M 200 35 Q 200 72 200 110"/>
-                                    <path class="beam-path" d="M 200 35 Q 260 72 320 110"/>
+                                    <!-- Straight lines from main circle through primary to secondary nodes -->
+                                    <!-- Left beam line through left primary -->
+                                    <line class="beam-path" x1="200" y1="35" x2="40" y2="200"/>
                                     
-                                    <!-- From primary nodes to secondary nodes -->
-                                    <!-- From left primary (80, 110) to two secondary nodes -->
-                                    <path class="beam-path" d="M 80 110 Q 60 155 40 200"/>
-                                    <path class="beam-path" d="M 80 110 Q 110 155 140 200"/>
+                                    <!-- Center-left beam line -->
+                                    <line class="beam-path" x1="200" y1="35" x2="140" y2="200"/>
                                     
-                                    <!-- From right primary (320, 110) to two secondary nodes -->
-                                    <path class="beam-path" d="M 320 110 Q 290 155 260 200"/>
-                                    <path class="beam-path" d="M 320 110 Q 340 155 360 200"/>
+                                    <!-- Center beam line straight down -->
+                                    <line class="beam-path" x1="200" y1="35" x2="200" y2="200"/>
+                                    
+                                    <!-- Center-right beam line -->
+                                    <line class="beam-path" x1="200" y1="35" x2="260" y2="200"/>
+                                    
+                                    <!-- Right beam line through right primary -->
+                                    <line class="beam-path" x1="200" y1="35" x2="360" y2="200"/>
+                                    
+                                    <!-- Additional geometric connections -->
+                                    <!-- Horizontal line through primary nodes -->
+                                    <line class="beam-path" x1="80" y1="110" x2="320" y2="110" style="opacity: 0.08;"/>
+                                    
+                                    <!-- Arc suggestions with very subtle opacity -->
+                                    <circle class="beam-path" cx="200" cy="35" r="165" fill="none" style="opacity: 0.03; stroke-dasharray: 2, 8;"/>
+                                    <circle class="beam-path" cx="200" cy="35" r="120" fill="none" style="opacity: 0.03; stroke-dasharray: 2, 8;"/>
                                 </g>
                             </svg>
                             
